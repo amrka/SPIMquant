@@ -86,6 +86,7 @@ parse_args:
      - gubra
      - MBMv3
      - turone
+     - ABAv3_Nissl
 
   --template_mri:
     help: "Template to use for MRI registration to obtain brain mask\n"
@@ -228,7 +229,24 @@ templates:
       all:
         dseg: '{workflow.basedir}/../resources/Turone_Mouse_Brain_Template/Turone_Mouse_Brain_Atlas/TMBTA_Brain_Atlas.nii.gz'
         itksnap: '{workflow.basedir}/../resources/Turone_Mouse_Brain_Template/Turone_Mouse_Brain_Atlas/TMBTA_ItK_Label_File.txt'
-
+  
+  ABAv3_Nissl:
+    anat: '{workflow.basedir}/../resources/ABAv3/ara_bbp_nisslCOR_25.nii.gz'
+    dseg: '{workflow.basedir}/../resources/ABAv3/P56_Annotation.nii.gz'
+    lut: '{workflow.basedir}/../resources/ABAv3/labelmapper_ABAv3_to_all.json'
+    segs:
+      all: 
+        dseg: 'tpl-ABAv3/tpl-ABAv3_desc-LR_dseg.nii.gz'
+        tsv: 'tpl-ABAv3/tpl-ABAv3_desc-LR_dseg.tsv'
+      roi22: 
+        dseg: '{workflow.basedir}/../resources/ABAv3/eed_labels/P56_annotation_22_R_L.nii.gz'
+        csv: '{workflow.basedir}/../resources/ABAv3/eed_labels/P56_annotation_22_R_L.csv'
+      roi82:
+        dseg: '{workflow.basedir}/../resources/ABAv3/eed_labels/P56_annotation_82_R_L.nii.gz'
+        csv: '{workflow.basedir}/../resources/ABAv3/eed_labels/P56_annotation_82_R_L.csv'
+      roi198:
+        dseg: '{workflow.basedir}/../resources/ABAv3/ngo_labels/atlas.nii.gz'
+        csv: '{workflow.basedir}/../resources/ABAv3/ngo_labels/atlas_with_names.csv'
 
 
 stains_for_reg: #ordered by priority
